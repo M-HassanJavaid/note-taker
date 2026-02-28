@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Signup from './pages/signup.jsx';
+import Signup from './pages/Signup.jsx';
 import Login from './pages/Login.jsx';
 import ForgetPassword from './pages/ForgetPassword.jsx';
 import Dashboard from './pages/dashboard.jsx';
