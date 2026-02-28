@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { LogIn, Mail, Lock } from 'lucide-react';
-import cn  from '../utils/cn';
-import Input from '../components/Input';
-import Button from '../components/Button';
+import cn  from '../utils/cn.js';
+import Input from '../components/Input.jsx';
+import Button from '../components/Button.jsx';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {

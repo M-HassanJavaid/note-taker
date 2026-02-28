@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Signup from './pages/signup';
-import Login from './pages/Login';
-import ForgetPassword from './pages/ForgetPassword';
-import Dashboard from './pages/dashboard';
-import CreateNote from './pages/createNote';
+import Signup from './pages/signup.jsx';
+import Login from './pages/Login.jsx';
+import ForgetPassword from './pages/ForgetPassword.jsx';
+import Dashboard from './pages/dashboard.jsx';
+import CreateNote from './pages/createNote.jsx';
 
 
 function App() {
