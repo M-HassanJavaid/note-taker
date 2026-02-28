@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+@import "tailwindcss";
+
+* {
+  font-family: "Google Sans", sans-serif;
+}
+
+:root{
+  --bg-primary: #0F172A;
+  --bg-secondary: #1E293B;
+  --btn-primary: #3B82F6;
+  --accent: #22D3EE;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+}
