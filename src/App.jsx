@@ -9,6 +9,7 @@ import AuthContext from './context/authContext.js';
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 import Loader from "./components/Loader.jsx"
 import NoteContext from './context/noteContext.js';
+import EmailVerification from './pages/EmailVerification.jsx';
 
 function App() {
 
@@ -18,12 +19,10 @@ function App() {
 
   async function getUser() {
     try {
-      console.log(`${import.meta.env.VITE_API_URL}/api/v1/auth/getUser`)
       let res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/auth/getUser`, {
         credentials: 'include'
       });
       let data = await res.json();
-      console.log(data)
       if (!data.isLogin) {
         return;
       };
@@ -72,6 +71,10 @@ function App() {
           <CreateNote />
         </ProtectedRoute>
       )
+    },
+    {
+      path: '/verify-email',
+      element: <EmailVerification/>
     }
   ])
 
