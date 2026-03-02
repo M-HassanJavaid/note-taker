@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { LogIn, Mail, Lock } from 'lucide-react';
-import cn  from '../utils/cn.js';
+import cn from '../utils/cn.js';
 import Input from '../components/Input.jsx';
 import Button from '../components/Button.jsx';
 import { Link, useNavigate } from 'react-router-dom';
+import authContext from '../context/authContext.js';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoggingIn, setIsLoggingIn] = useState(false);
     const navigate = useNavigate();
+    const { user, setUser } = useContext(authContext);
+    const [isEmailSent, setIsEmailSent] = useState(false)
 
     const handleLogin = async (e) => {
         try {
@@ -36,6 +39,7 @@ const Login = () => {
                 alert('You have successfully login');
                 setEmail('');
                 setPassword('')
+                setUser(res.user)
                 navigate('/')
             }
 
@@ -47,7 +51,6 @@ const Login = () => {
 
         }
     };
-
 
 
     return (

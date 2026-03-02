@@ -9,7 +9,7 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [name, setName] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const navigate = useNavigate();
+    const [isEmailSent, setIsEmailSent] = useState(false)
 
     const handleSubmit = async (e) => {
         try {
@@ -39,9 +39,10 @@ const Signup = () => {
                 alert('You have successfully signup, A verification email has sent to you verify your email.');
                 setEmail('');
                 setPassword('')
-                navigate('/')
+                // navigate('/')
+                setIsEmailSent(true)
             }
-            
+
         } catch (error) {
             alert(error.message)
             console.log(error)
@@ -51,6 +52,18 @@ const Signup = () => {
 
 
     };
+
+    if (isEmailSent) {
+        return (
+            <main className='min-h-screen w-screen bg-(--bg-primary) flex justify-center items-center'>
+                <h1 className='text-2xl text-(--text-primary) text-center font-bold' >
+                    Verify your email to continue.
+                    A verification email sent to your email
+                </h1>
+            </main>
+        )
+
+    }
 
     return (
         <main className="min-h-screen w-full flex items-center justify-center bg-[var(--bg-primary)] px-4">
