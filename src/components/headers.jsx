@@ -1,10 +1,36 @@
 import React from 'react';
 import { Plus, LogOut, ShieldCheck } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from './Button';
 import cn from '../utils/cn';
 
-const Header = ({ onLogout }) => {
+const Header = () => {
+
+    const navigate = useNavigate();
+    const [isLoggingOut, setIsLoggingOut] = useState(false)
+
+    async function onLogout() {
+        try {
+            setIsLoggingOut(true)
+            let res = fetch(`${import.meta.env.VITE_API_URL}/api/v1/auth/logout` , {
+                credentials: true
+            });
+            let data = await res.json();
+            if (!data.success) {
+                alert(data.message);
+                return
+            }
+
+            navigate('/login')
+            alert('Logout successfully!');
+
+        } catch (error) {
+            alert(error.message)
+        } finally{
+            setIsLoggingOut(false)
+        }
+    }
+
   return (
     <header className={cn(
       "sticky top-0 z-50 w-full px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between",
@@ -31,7 +57,8 @@ const Header = ({ onLogout }) => {
           </Button>
         </Link>
 
-        <Button 
+        <Button
+          loading={isLoggingOut}
           onClick={onLogout}
           className={cn(
             "bg-transparent border border-slate-700 hover:bg-red-500/10 hover:border-red-500/50 hover:text-red-400",
