@@ -13,7 +13,7 @@ const Header = () => {
     async function onLogout() {
         try {
             setIsLoggingOut(true)
-            let res = fetch(`${import.meta.env.VITE_API_URL}/api/v1/auth/logout` , {
+            let res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/auth/logout` , {
                 credentials: true
             });
             let data = await res.json();
