@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Plus, LogOut, ShieldCheck } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from './Button';
@@ -8,6 +8,7 @@ const Header = () => {
 
     const navigate = useNavigate();
     const [isLoggingOut, setIsLoggingOut] = useState(false)
+
 
     async function onLogout() {
         try {
